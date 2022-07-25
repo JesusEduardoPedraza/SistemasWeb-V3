@@ -10,6 +10,7 @@ using SistemasWeb.Data;
 using SistemasWeb.Models;
 using SistemasWeb.Library;
 using Microsoft.AspNetCore.Authorization;
+using Newtonsoft.Json;
 
 namespace SistemasWeb.Areas.Categorias.Controllers
 {
@@ -46,7 +47,8 @@ namespace SistemasWeb.Areas.Categorias.Controllers
         {
             if (model.Input.Nombre != null && model.Input.Descripcion != null)
             {
-                return "Hola";
+                var data = _lcategoria.RegistrarCategoria(model.Input);
+                return JsonConvert.SerializeObject(data);
             }
             else
             {
