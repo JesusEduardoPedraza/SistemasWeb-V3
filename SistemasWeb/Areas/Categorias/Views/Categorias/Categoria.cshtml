@@ -44,6 +44,8 @@
                                 <input asp-for="Input.Estado" />
                             </div>
                     </div>
+                    <span id="mensaje" class=" text-danger"></span>
+                    <input type="text" required class="hidenn" />
                 </div>
             </div>
             <div class="modal-footer">
@@ -55,3 +57,6 @@
         
     </div>
 </div>
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

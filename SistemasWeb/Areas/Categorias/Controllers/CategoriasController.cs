@@ -42,9 +42,16 @@ namespace SistemasWeb.Areas.Categorias.Controllers
             }
         }
         [HttpPost]
-        public IActionResult GetCategorias(DataPaginador<TCategoria> model)
+        public String GetCategorias(DataPaginador<TCategoria> model)
         {
-            return View();
+            if (model.Input.Nombre != null && model.Input.Descripcion != null)
+            {
+                return "Hola";
+            }
+            else
+            {
+                return "Llene los campos requeridos";
+            }
         }
     }
 }
