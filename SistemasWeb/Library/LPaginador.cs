@@ -6,7 +6,8 @@ namespace SistemasWeb.Library
 {
     public class LPaginador<T>
     {
-        //cantidad de resultados por página 
+        //cantidad de resultados por página
+        //aqui debemos indicar la cantidad de registros que debemos mostrar por pagina
         private int pagi_cuantos = 1;
         //cantidad de enlaces que se mostrarán como máximo en la barra de navegación 
         private int pagi_nav_num_enlaces = 3;

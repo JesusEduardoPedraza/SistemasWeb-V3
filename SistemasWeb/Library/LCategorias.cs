@@ -33,7 +33,19 @@ namespace SistemasWeb.Library
                 };
             }
             return identityError;
-           
+        }
+        public List<TCategoria> getTCategoria(String valor)
+        {
+            List<TCategoria> listCategoria;
+            if (valor == null)
+            {
+                listCategoria = _context._TCategoria.ToList();
+            }
+            else
+            {
+                listCategoria = _context._TCategoria.Where(c => c.Nombre.StartsWith(valor)).ToList();
+            }
+            return listCategoria;
         }
 
     }

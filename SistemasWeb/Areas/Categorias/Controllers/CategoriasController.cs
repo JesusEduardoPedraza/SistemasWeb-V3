@@ -27,12 +27,18 @@ namespace SistemasWeb.Areas.Categorias.Controllers
             _signInManager = signInManager;
             _lcategoria = new LCategorias(context);
         }
-        public IActionResult Categoria()
+        public IActionResult Categoria(int id, String Search, int Registros)
         {
             if (_signInManager.IsSignedIn(User))
             {
+                var url = Request.Scheme + "://" + Request.Host.Value;
+                var objects = new LPaginador<TCategoria>().paginador(_lcategoria.getTCategoria(Search)
+                   , id, Registros, "Categorias", "Categorias", "Categoria", url);
                 models = new DataPaginador<TCategoria>
                 {
+                    List = (List<TCategoria>)objects[2],
+                    Pagi_info = (String)objects[0],
+                    Pagi_navegacion = (String)objects[1],
                     Input = new TCategoria()
                 };
                 return View(models);
