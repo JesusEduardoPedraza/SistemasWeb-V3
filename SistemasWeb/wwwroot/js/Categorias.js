@@ -16,8 +16,14 @@
                     document.getElementById("mensaje").innerHTML = response;
                 }
                 
-                console.log(response);
+                
             }
         );
+    }
+    EditCategoria(data) {
+        document.getElementById("catNombre").value = data.Nombre;
+        document.getElementById("catDescripcion").value = data.Descripcion;
+        document.getElementById("catEstado").checked = data.Estado;
+        console.log(data);
     }
 }

@@ -54,6 +54,7 @@ namespace SistemasWeb.Library
             {
                 var categoria = _context._TCategoria.Where(c => c.CategoriaID.Equals(id)).ToList().ElementAt(0);
                 categoria.Estado = categoria.Estado ? false : true;
+                int data = Convert.ToInt16("a");
                 _context.Update(categoria);
                 _context.SaveChanges();
                 identityError = new IdentityError { Description = "Done" };

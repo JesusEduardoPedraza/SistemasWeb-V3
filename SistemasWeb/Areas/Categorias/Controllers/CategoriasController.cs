@@ -22,7 +22,7 @@ namespace SistemasWeb.Areas.Categorias.Controllers
         private LCategorias _lcategoria;
         private SignInManager<IdentityUser> _signInManager;
         private static DataPaginador<TCategoria> models;
-        private static IdentityError identityError;
+        private static IdentityError identityError = null;
         public CategoriasController(ApplicationDbContext context, SignInManager<IdentityUser> signInManager)
         {
             _signInManager = signInManager;
@@ -54,6 +54,11 @@ namespace SistemasWeb.Areas.Categorias.Controllers
                     Pagi_navegacion = (String)objects[1],
                     Input = new TCategoria()
                 };
+                if (identityError != null)
+                {
+                    models.Pagi_info = identityError.Description;
+                    identityError = null;
+                }
                 return View(models);
             }
             else
