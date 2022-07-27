@@ -21,7 +21,14 @@ namespace SistemasWeb.Library
         {
             IdentityError identityError;
             try {
-                _context.Add(categoria);
+                if (categoria.CategoriaID.Equals(0))
+                {
+                    _context.Add(categoria);
+                }
+                else
+                {
+                    _context.Update(categoria);
+                }
                 _context.SaveChanges();
                 identityError = new IdentityError { Code = "Done" };
             } 

@@ -24,6 +24,7 @@
         document.getElementById("catNombre").value = data.Nombre;
         document.getElementById("catDescripcion").value = data.Descripcion;
         document.getElementById("catEstado").checked = data.Estado;
+        document.getElementById("catCategoriaID").value = data.CategoriaID;
         console.log(data);
     }
 }

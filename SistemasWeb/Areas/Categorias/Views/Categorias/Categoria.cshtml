@@ -80,6 +80,8 @@
                     @{
                         var data = JsonConvert.SerializeObject(item);
                         <a data-toggle='modal' onclick="categorias.EditCategoria(@data)" data-target='#modal1' class='btn btn-info text-white'>Editar</a>
+
+                        <a data-toggle='modal' data-target='#ModalEliminar' onclick="categoria.GetCategoria(@data)" class='btn btn-danger text-white'>Eliminar</a>
                     }
                 </td>
             </tr>
@@ -128,6 +130,7 @@
                         </div>
                         <span id="mensaje" class=" text-danger"></span>
                         <input type="text" required class="hidenn" />
+                        <input asp-for="Input.CategoriaID" id="catCategoriaID" class="hidenn" />
                     </div>
                 </div>
                 <div class="modal-footer">
