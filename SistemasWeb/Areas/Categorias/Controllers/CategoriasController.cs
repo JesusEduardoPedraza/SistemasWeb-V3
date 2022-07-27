@@ -22,6 +22,7 @@ namespace SistemasWeb.Areas.Categorias.Controllers
         private LCategorias _lcategoria;
         private SignInManager<IdentityUser> _signInManager;
         private static DataPaginador<TCategoria> models;
+        private static IdentityError identityError;
         public CategoriasController(ApplicationDbContext context, SignInManager<IdentityUser> signInManager)
         {
             _signInManager = signInManager;
@@ -72,6 +73,12 @@ namespace SistemasWeb.Areas.Categorias.Controllers
             {
                 return "Llene los campos requeridos";
             }
+        }
+        [HttpPost]
+        public IActionResult UpdateEstado(int id)
+        {
+            identityError = _lcategoria.UpdateEstado(id);
+            return Redirect("/Categorias/Categoria?area=Categorias");
         }
     }
 }

@@ -47,6 +47,27 @@ namespace SistemasWeb.Library
             }
             return listCategoria;
         }
+        internal IdentityError UpdateEstado(int id)
+        {
+            IdentityError identityError;
+            try
+            {
+                var categoria = _context._TCategoria.Where(c => c.CategoriaID.Equals(id)).ToList().ElementAt(0);
+                categoria.Estado = categoria.Estado ? false : true;
+                _context.Update(categoria);
+                _context.SaveChanges();
+                identityError = new IdentityError { Description = "Done" };
+            }
+            catch (Exception e)
+            {
+                identityError = new IdentityError
+                {
+                    Code = "Error",
+                    Description = e.Message
+                };
+            }
+            return identityError;
+        }
 
     }
 }

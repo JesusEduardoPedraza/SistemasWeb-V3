@@ -19,7 +19,6 @@
     </div>
 </form>
 <br />
-<br />
 <div class="form-group">
     <div class="row">
         <div class="col-md-3">
@@ -28,7 +27,7 @@
          <form asp-area="Categorias" asp-controller="Categorias" asp-action="Categoria" method="get">
             <div class="row">
                 <div class="col-md-5">
-                    <input type="number" name="Registros" class="form-control" value="5" min="1" max="50" step="1">
+                    <input type="number" name="Registros" class="form-control" value="2" min="1" max="50" step="1">
                 </div>
                 <div class="col-md-3">
                     <input type="submit" class="btn btn-success" value="N Registros">
@@ -65,14 +64,17 @@
                     @Html.DisplayFor(modelItem => item.Descripcion)
                 </td>
                 <td>
-                    @if (item.Estado)
-                    {
-                        <a class="btn-sm btn-success text-light">Activa</a>
-                    }
-                    else
-                    {
-                        <a class="btn-sm btn-danger text-light">No activa</a>
-                    }
+                    <form asp-area="Categorias" asp-controller="Categorias" asp-action="UpdateEstado" method="post">
+                         <input type="hidden" name="id" value="@item.CategoriaID">
+                        @if (item.Estado)
+                        {
+                             <input type="submit" class="btn-sm btn-success text-light" value="Activa" />
+                        }
+                        else
+                        {
+                            <input type="submit" class="btn-sm btn-danger text-light" value="No activa" />
+                        }
+                    </form>
                 </td>
             </tr>
         }
