@@ -5,9 +5,38 @@
 }
 
 <h1>Categorías</h1>
-<p>
-    <a data-toggle='modal' data-target='#modal1' class='btn btn-info text-white'>Crear categoria</a>
-</p>
+
+<form asp-area="Categorias" asp-controller="Categorias" asp-action="Categoria" method="get">
+    <div class="row">
+        <div class="col-xs-8 col-md-3">
+            <input id="filtrar" name="Search" placeholder="Buscar categorias" class="form-control" />
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="col-md-2">
+                <button type="submit" class='btn btn-info'>Buscar</button>
+            </div>
+        </div>
+    </div>
+</form>
+<br />
+<br />
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-3">
+            <a data-toggle='modal' data-target='#modal1' class='btn btn-info text-white'>Crear categoria</a>
+        </div>
+         <form asp-area="Categorias" asp-controller="Categorias" asp-action="Categoria" method="get">
+            <div class="row">
+                <div class="col-md-5">
+                    <input type="number" name="Registros" class="form-control" value="5" min="1" max="50" step="1">
+                </div>
+                <div class="col-md-3">
+                    <input type="submit" class="btn btn-success" value="N Registros">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 <table class="table">
     <thead>
         <tr>

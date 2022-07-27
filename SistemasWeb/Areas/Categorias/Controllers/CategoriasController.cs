@@ -31,9 +31,21 @@ namespace SistemasWeb.Areas.Categorias.Controllers
         {
             if (_signInManager.IsSignedIn(User))
             {
-                var url = Request.Scheme + "://" + Request.Host.Value;
-                var objects = new LPaginador<TCategoria>().paginador(_lcategoria.getTCategoria(Search)
-                   , id, Registros, "Categorias", "Categorias", "Categoria", url);
+                Object[] objects = new Object[3];
+                var data = _lcategoria.getTCategoria(Search);
+                if (0 < data.Count)
+                {
+                    var url = Request.Scheme + "://" + Request.Host.Value;
+                    objects = new LPaginador<TCategoria>().paginador(_lcategoria.getTCategoria(Search)
+                       , id, Registros, "Categorias", "Categorias", "Categoria", url);
+                }
+                else
+                {
+                    objects[0] = "No hay datos que mostrar";
+                    objects[1] = "No hay datos que mostrar";
+                    objects[2] = new List<TCategoria>();
+                }
+                
                 models = new DataPaginador<TCategoria>
                 {
                     List = (List<TCategoria>)objects[2],
