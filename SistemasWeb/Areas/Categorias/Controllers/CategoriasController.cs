@@ -88,7 +88,8 @@ namespace SistemasWeb.Areas.Categorias.Controllers
         [HttpPost]
         public String EliminarCategoria(int CategoriaID)
         {
-            return null;
+            identityError = _lcategoria.DeleteCategoria(CategoriaID);
+            return JsonConvert.SerializeObject(identityError);
         }
     }
 }

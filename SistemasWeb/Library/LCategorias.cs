@@ -77,6 +77,28 @@ namespace SistemasWeb.Library
             }
             return identityError;
         }
-
+        internal IdentityError DeleteCategoria(int categoriaID)
+        {
+            IdentityError identityError;
+            try
+            {
+                var categoria = new TCategoria
+                {
+                    CategoriaID = categoriaID
+                };
+                _context.Remove(categoria);
+                _context.SaveChanges();
+                identityError = new IdentityError { Description = "Done" };
+            }
+            catch (Exception e)
+            {
+                identityError = new IdentityError
+                {
+                    Code = "Error",
+                    Description = e.Message
+                };
+            }
+            return identityError;
+        }
     }
 }
