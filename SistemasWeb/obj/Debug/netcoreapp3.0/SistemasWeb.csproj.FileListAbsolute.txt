@@ -155,3 +155,5 @@ C:\Proyecto ASPNet Core\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Ar
 C:\Proyecto ASPNet Core\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Principal\Views\Principal\Index.cshtml.g.cs
 C:\Proyecto ASPNet Core\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Categorias\Views\_ViewImports.cshtml.g.cs
 C:\Proyecto ASPNet Core\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Categorias\Views\Categorias\Categoria.cshtml.g.cs
+C:\Proyecto ASPNet Core\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Categorias\Views\Categorias\_ModalRegistrar.cshtml.g.cs
+C:\Proyecto ASPNet Core\SistemasWeb\SistemasWeb\obj\Debug\netcoreapp3.0\Razor\Areas\Categorias\Views\Categorias\_ModalEliminar.cshtml.g.cs

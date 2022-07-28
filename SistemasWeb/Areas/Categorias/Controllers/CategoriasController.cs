@@ -85,5 +85,10 @@ namespace SistemasWeb.Areas.Categorias.Controllers
             identityError = _lcategoria.UpdateEstado(id);
             return Redirect("/Categorias/Categoria?area=Categorias");
         }
+        [HttpPost]
+        public String EliminarCategoria(int CategoriaID)
+        {
+            return null;
+        }
     }
 }

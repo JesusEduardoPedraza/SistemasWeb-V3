@@ -81,7 +81,7 @@
                         var data = JsonConvert.SerializeObject(item);
                         <a data-toggle='modal' onclick="categorias.EditCategoria(@data)" data-target='#modal1' class='btn btn-info text-white'>Editar</a>
 
-                        <a data-toggle='modal' data-target='#ModalEliminar' onclick="categoria.GetCategoria(@data)" class='btn btn-danger text-white'>Eliminar</a>
+                        <a data-toggle='modal' data-target='#ModalEliminar' onclick="categorias.GetCategoria(@data)" class='btn btn-danger text-white'>Eliminar</a>
                     }
                 </td>
             </tr>
@@ -93,55 +93,8 @@
     <br />
     @Html.Raw(Model.Pagi_navegacion)
 </div>
-<div class="modal fade" data-backdrop="static" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-
-    <div class="modal-dialog" role="document">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Agregar categoria</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <form method="post" asp-area="Categorias" asp-controller="Categorias" asp-action="GetCategorias" class="formCategoria">
-                <div class="modal-body">
-                    <div class="form-horizontal">
-                        <div class="form-group">
-                            <label asp-for="Input.Nombre" class="col-md-2 control-label"></label>
-                            <div class="col-md-10">
-                                <input asp-for="Input.Nombre" id="catNombre" placeholder="Nombre" class="form-control" />
-                                <span asp-validation-for="Input.Nombre" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Input.Descripcion" class="col-md-2 control-label"></label>
-                            <div class="col-md-10">
-                                <input asp-for="Input.Descripcion" id="catDescripcion" placeholder="Descripcion" class="form-control" />
-                                <span asp-validation-for="Input.Descripcion" class="text-danger"></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Input.Estado" class="col-md-2 control-label"></label>
-                            <div class="col-md-10">
-                                <input asp-for="Input.Estado" id="catEstado"/>
-                            </div>
-                        </div>
-                        <span id="mensaje" class=" text-danger"></span>
-                        <input type="text" required class="hidenn" />
-                        <input asp-for="Input.CategoriaID" id="catCategoriaID" class="hidenn" />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" onclick="categorias.RegistrarCategoria()" class="btn btn-primary">Guardar</button>
-                </div>
-            </form>
-        </div>
-
-    </div>
-</div>
+<partial name="_ModalRegistrar" />
+<partial name="_ModalEliminar" />
 @section Scripts {
     @await Html.PartialAsync("_ValidationScriptsPartial")
 }

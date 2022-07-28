@@ -1,4 +1,7 @@
 ﻿class Categorias {
+    constructor() {
+        this.CategoriaID = 0;
+    }
 
     RegistrarCategoria() {
         $.post(
@@ -26,5 +29,23 @@
         document.getElementById("catEstado").checked = data.Estado;
         document.getElementById("catCategoriaID").value = data.CategoriaID;
         console.log(data);
+    }
+    GetCategoria(data) {
+        document.getElementById("titleCategoria").innerHTML = data.Nombre;
+        this.CategoriaID = data.CategoriaID;
+    }
+    EliminarCategoria() {
+        $.post(
+            "EliminarCategoria",
+            { CategoriaID: this.CategoriaID },
+            (response) => {
+                var item = JSON.parse(response);
+                if (item.Description == "Done") {
+                    window.location.href = "Categoria";
+                } else {
+                    document.getElementById("mensajeEliminar").innerHTML = item.Description;
+                }
+            }
+        );
     }
 }
