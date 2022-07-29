@@ -96,7 +96,8 @@ namespace SistemasWeb
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapAreaControllerRoute("Principal", "Principal", "{controller=Principal}/{action=Index}/{id?}");
-                endpoints.MapAreaControllerRoute("Categorias", "Categorias", "{controller=Categorias}/{action=Index}/{id?}");
+                endpoints.MapAreaControllerRoute("Categorias", "Categorias", "{controller=Categorias}/{action=Categoria}/{id?}");
+                endpoints.MapAreaControllerRoute("Cursos", "Cursos", "{controller=Cursos}/{action=Cursos}/{id?}");
                 endpoints.MapRazorPages();
             });
 
